@@ -1,4 +1,5 @@
 DISTDIR ?= dist
+BUILD ?= pro
 
 ALL_TARGETS := \
 	$(DISTDIR)/app.js \
@@ -12,6 +13,12 @@ clean:
 
 du:
 	@du -h $(ALL_TARGETS)
+
+ifneq ($(BUILD),dev)
+	@echo 'build dev'
+else
+	@echo 'build pro'
+endif
 
 assets_vfsdata.go:
 	cd .. && vfsgendev  -source=\"github.com/tonyjia87/editor/frontend\".Assets && mv $@ frontend/

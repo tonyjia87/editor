@@ -39,8 +39,6 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		"/templates/index.html"))
 
 	t.Execute(w, config)
-
-	//File := template.New(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html")).Delims("[[", "]]").
 }
 
 func setupRoutes(relativeroot string) *http.ServeMux {

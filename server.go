@@ -34,9 +34,11 @@ func noCacheControl(h http.Handler) http.Handler {
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 
-	t := template.Must(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html"))
-	t.Delims("[[", "]]")
+	t := template.Must(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html")).Delims("[[", "]]")
+	//t.Delims("[[", "]]")
 	t.Execute(w, config)
+
+	//File := template.New(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html")).Delims("[[", "]]").
 }
 
 func setupRoutes(relativeroot string) *http.ServeMux {
@@ -78,7 +80,7 @@ func startServer(config *Config, bindAddr string) {
 
 }
 
-func main()  {
+func main() {
 	var wg sync.WaitGroup
 	wg.Add(1)
 	go startServer(config, config.BindAddr)

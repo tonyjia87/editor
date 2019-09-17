@@ -2,7 +2,6 @@
 
 var demo = new Vue({
 
-
     el: '#main',
 
     data: {
@@ -20,4 +19,4 @@ var demo = new Vue({
             this.show_tooltip = !this.show_tooltip;
         }
     }
-    })
+    });

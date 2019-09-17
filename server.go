@@ -33,9 +33,11 @@ func noCacheControl(h http.Handler) http.Handler {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
+	tf := template.New("index.html").Delims("[[", "]]")
+	t := template.Must(vfstemplate.ParseFiles(frontend.Assets,
+		tf,
+		"/templates/index.html"))
 
-	t := template.Must(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html")).Delims("[[", "]]")
-	//t.Delims("[[", "]]")
 	t.Execute(w, config)
 
 	//File := template.New(vfstemplate.ParseFiles(frontend.Assets, nil, "/templates/index.html")).Delims("[[", "]]").

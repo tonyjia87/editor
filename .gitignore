@@ -90,6 +90,5 @@ fabric.properties
 .idea/encodings.xml
 .idea/misc.xml
 .idea/modules.xml
-frontend/assets_vfsdata.go
 
 vendor/

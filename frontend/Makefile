@@ -1,9 +1,10 @@
-DISTDIR ?= dist
+RESOURCESDIR ?= resources
 BUILD ?= pro
 
 ALL_TARGETS := \
-	$(DISTDIR)/app.js \
-	$(DISTDIR)/app.css \
+	$(RESOURCESDIR)/js/app.js \
+	$(RESOURCESDIR)/sass/app.scss \
+	resources \
 	assets_vfsdata.go
 
 all: $(ALL_TARGETS)
@@ -14,14 +15,11 @@ clean:
 du:
 	@du -h $(ALL_TARGETS)
 
-ifneq ($(BUILD),dev)
-	@echo 'build dev'
-else
-	@echo 'build pro'
-endif
+resources:
+	@npm run prod
 
 assets_vfsdata.go:
 	cd .. && vfsgendev  -source=\"github.com/tonyjia87/editor/frontend\".Assets && mv $@ frontend/
 
-.PHONY: all clean du assets_vfsdata.go
+.PHONY: all clean du resources assets_vfsdata.go
 

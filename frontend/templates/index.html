@@ -3,31 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>demo</title>
-    <link rel="stylesheet" type="text/css" href="[[ .RelativeRoot ]]vfs/dist/app.css">
+    <link rel="stylesheet" type="text/css" href="[[ .RelativeRoot ]]vfs/dist/css/app.css">
 </head>
 <body>
 
     <div id="app">
-      <div id="main" v-cloak v-on:click="hideTooltip" >
-
-
-
-        <div class="tooltip" v-on:click.stop v-if="show_tooltip">
-
-
-            <input type="text" v-model="text_content" />
-        </div>
-
-
-
-        <p v-on:click.stop="toggleTooltip">{{text_content}}</p>
-
+        <edit-component></edit-component>
+        <cors-component></cors-component>
     </div>
 </div>
 
 </body>
 
-<script src="https://cdn.jsdelivr.net/npm/vue"></script>
-<script type='text/javascript' src="[[ .RelativeRoot ]]vfs/dist/app.js"></script>
+<script type='text/javascript' src="[[ .RelativeRoot ]]vfs/dist/js/app.js"></script>
 
 </html>
